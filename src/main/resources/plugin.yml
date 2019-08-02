@@ -1,0 +1,20 @@
+name: SavageCore
+version: ${project.version}
+main: me.ryder.savagecore.SavageCore
+api-version: '1.13'
+authors: [Ryder]
+description: A plugin to improve the Factions experience.
+commands:
+  sc:
+    aliases:
+      - savagecore
+    description: The base commands for SavageCore
+permissions:
+  savagecore.admin:
+    description: Gives you permissions for everything.
+  savagecore.reload:
+    description: Allows you to reload the plugin.
+  savagecore.delay:
+    description: Allows you to set the hit delay.
+  savagecore.info:
+    description: Displays a list of commands.

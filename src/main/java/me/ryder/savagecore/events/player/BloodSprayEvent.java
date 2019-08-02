@@ -1,0 +1,27 @@
+package me.ryder.savagecore.events.player;
+
+import me.ryder.savagecore.persist.Config;
+import org.bukkit.Effect;
+import org.bukkit.Location;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
+
+public class BloodSprayEvent implements Listener {
+
+    @EventHandler
+    public void onPlayerHit(EntityDamageEvent e) {
+        if (!((e.getEntity()) instanceof Player)) {
+            return;
+        }
+
+        if (Config.bloodSprayToggle) {
+            Entity target = e.getEntity();
+            Location loc = target.getLocation();
+
+            target.getWorld().playEffect(loc, Effect.STEP_SOUND, 152);
+        }
+    }
+}
