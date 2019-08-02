@@ -9,12 +9,6 @@ import org.bukkit.command.CommandSender;
 
 public class BaseCommand implements CommandExecutor {
 
-    private int delay;
-
-    public void setDelay(int delay) {
-        this.delay = Config.delay;
-    }
-
     private void reloadConfiguration() {
         Config.load();
         Messages.load();
