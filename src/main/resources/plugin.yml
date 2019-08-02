@@ -14,7 +14,5 @@ permissions:
     description: Gives you permissions for everything.
   savagecore.reload:
     description: Allows you to reload the plugin.
-  savagecore.delay:
-    description: Allows you to set the hit delay.
   savagecore.info:
     description: Displays a list of commands.
