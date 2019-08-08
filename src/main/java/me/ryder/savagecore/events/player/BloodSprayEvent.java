@@ -14,7 +14,7 @@ public class BloodSprayEvent implements Listener {
     @EventHandler
     public void onPlayerHit(EntityDamageEvent e) {
         if (Config.bloodSprayToggle) {
-            if (!((e.getEntity()) instanceof Player)) {
+            if (!(e.getEntity() instanceof Player)) {
                 return;
             }
             Entity target = e.getEntity();
