@@ -13,7 +13,7 @@ public class DenyFireSpreadEvent implements Listener {
     public void disableFireSpread(BlockIgniteEvent e) {
         // Block block = e.getBlock();
         // World world = block.getWorld();
-        
+
         if (Config.fireSpreadToggle && e.getCause() == IgniteCause.SPREAD) {
             e.setCancelled(true);
         }
