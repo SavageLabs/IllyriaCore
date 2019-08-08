@@ -10,13 +10,10 @@ import me.ryder.savagecore.persist.Config;
 public class DenyBabyMobEvent implements Listener {
     @EventHandler
     public void onZombieSpawn(CreatureSpawnEvent e) {
-        if (Config.babyMobToggle) {
-            if (e.getEntity() instanceof Zombie) {
-                Zombie z = (Zombie) e.getEntity();
-                if (z.isBaby() && z.isInsideVehicle()) {
-                    e.setCancelled(true);
-                }
-
+        if (Config.babyMobToggle && e.getEntity() instanceof Zombie) {
+            Zombie z = (Zombie) e.getEntity();
+            if (z.isBaby() && z.isInsideVehicle()) {
+                e.setCancelled(true);
             }
         }
     }

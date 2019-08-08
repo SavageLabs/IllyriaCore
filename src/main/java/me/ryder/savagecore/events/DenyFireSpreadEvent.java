@@ -5,17 +5,16 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockIgniteEvent;
+import org.bukkit.event.block.BlockIgniteEvent.IgniteCause;
 
 public class DenyFireSpreadEvent implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void disableFireSpread(BlockIgniteEvent e) {
-        BlockIgniteEvent.IgniteCause cause = e.getCause();
         // Block block = e.getBlock();
         // World world = block.getWorld();
-        boolean isFireSpread = (cause == BlockIgniteEvent.IgniteCause.SPREAD);
-
-        if (Config.fireSpreadToggle && isFireSpread) {
+        
+        if (Config.fireSpreadToggle && e.getCause() == IgniteCause.SPREAD) {
             e.setCancelled(true);
         }
     }
