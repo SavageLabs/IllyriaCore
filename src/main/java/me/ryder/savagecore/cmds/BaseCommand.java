@@ -1,11 +1,12 @@
 package me.ryder.savagecore.cmds;
 
-import me.ryder.savagecore.utils.Methods;
-import me.ryder.savagecore.persist.Config;
-import me.ryder.savagecore.persist.Messages;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+
+import me.ryder.savagecore.utils.Methods;
+import me.ryder.savagecore.persist.Config;
+import me.ryder.savagecore.persist.Messages;
 
 public class BaseCommand implements CommandExecutor {
 

@@ -1,0 +1,14 @@
+
+*.xml
+
+\.idea/
+
+*.iml
+
+*.lst
+
+*.properties
+
+*.jar
+
+*.class

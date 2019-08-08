@@ -1,12 +1,13 @@
 package me.ryder.savagecore.events;
 
-import me.ryder.savagecore.persist.Config;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
+
+import me.ryder.savagecore.persist.Config;
 
 public class DenyItemBurnEvent implements Listener {
 

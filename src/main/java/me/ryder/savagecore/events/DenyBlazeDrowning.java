@@ -1,11 +1,12 @@
 package me.ryder.savagecore.events;
 
-import me.ryder.savagecore.persist.Config;
 import org.bukkit.entity.Blaze;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.*;
+
+import me.ryder.savagecore.persist.Config;
 
 public class DenyBlazeDrowning implements Listener {
 

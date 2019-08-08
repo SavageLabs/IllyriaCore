@@ -22,5 +22,4 @@ public class Messages {
     public static void load() {
         new Serializer().load(instance, Messages.class, "messages");
     }
-
 }

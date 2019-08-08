@@ -3,10 +3,11 @@ package me.ryder.savagecore.events.factions;
 import com.massivecraft.factions.Board;
 import com.massivecraft.factions.FLocation;
 import com.massivecraft.factions.Faction;
-import me.ryder.savagecore.persist.Config;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.SpawnerSpawnEvent;
+
+import me.ryder.savagecore.persist.Config;
 
 public class AntiWildernessSpawner implements Listener {
 

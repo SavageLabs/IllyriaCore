@@ -18,7 +18,7 @@ public final class SavageCore extends BasePlugin implements Listener {
     @Override
     public void onEnable() {
         super.onEnable();
-        getLogger().info("Starting SavageCore's Enable...");
+        getLogger().info("SavageFactions is needed to run this plugin, Certain features will still work but it will throw errors.");
         loadData();
         loadLists();
         loadCmds();

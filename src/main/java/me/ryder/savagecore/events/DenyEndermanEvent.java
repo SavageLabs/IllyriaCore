@@ -1,12 +1,13 @@
 package me.ryder.savagecore.events;
 
-import me.ryder.savagecore.persist.Config;
 import org.bukkit.entity.Enderman;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
+
+import me.ryder.savagecore.persist.Config;
 
 public class DenyEndermanEvent implements Listener {
 
