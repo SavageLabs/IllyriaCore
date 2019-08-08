@@ -13,7 +13,7 @@ public class TargetAutoRespawnEvent extends Event {
     private Player p;
     private Location dl;
     private Location rl;
-    private static  HandlerList handlers;
+    private static HandlerList handlers;
 
     static {
         handlers = new HandlerList();
