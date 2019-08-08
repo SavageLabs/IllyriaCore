@@ -6,7 +6,7 @@
 
     <groupId>me.ryder</groupId>
     <artifactId>SavageCore</artifactId>
-    <version>1.0-STABLE</version>
+    <version>1.1-STABLE</version>
     <packaging>jar</packaging>
 
     <name>SavageCore</name>
