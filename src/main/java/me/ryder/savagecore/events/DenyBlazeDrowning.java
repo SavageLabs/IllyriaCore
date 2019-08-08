@@ -15,7 +15,7 @@ public class DenyBlazeDrowning implements Listener {
             if (e.isCancelled()) {
                 return;
             }
-            if (e.getEntity() instanceof Blaze && e.getCause().equals(DamageCause.DROWNING)) {
+            if (e.getEntity() instanceof Blaze && e.getCause() == DamageCause.DROWNING) {
                 e.setCancelled(true);
             }
         }

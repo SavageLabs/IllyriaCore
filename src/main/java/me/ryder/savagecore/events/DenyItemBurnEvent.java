@@ -15,7 +15,7 @@ public class DenyItemBurnEvent implements Listener {
         Entity en = e.getEntity();
         DamageCause cause = e.getCause();
         if (Config.itemBurnToggle) {
-            if (!en.getType().equals(EntityType.DROPPED_ITEM)) {
+            if (en.getType() != EntityType.DROPPED_ITEM) {
                 return;
             }
             if (!Config.damageTypes.contains(cause.toString())) {

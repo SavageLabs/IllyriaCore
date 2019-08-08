@@ -19,6 +19,7 @@ public class BaseCommand implements CommandExecutor {
         if (args.length == 0) {
             if (!sender.hasPermission("savagecore.info")) {
                 sender.sendMessage(Messages.prefix + Messages.noPerms.toString());
+                return false;
             }
             sender.sendMessage(Methods.pl("&cThis shows a list of commands."));
             sender.sendMessage(Methods.pl("&8- &c/sc reload &7This will reload the plugin."));
@@ -26,6 +27,7 @@ public class BaseCommand implements CommandExecutor {
             if (args[0].equalsIgnoreCase("reload")) {
                 if (!sender.hasPermission("savagecore.reload")) {
                     sender.sendMessage(Messages.prefix + Messages.noPerms.toString());
+                    return false;
                 }
                 reloadConfiguration();
                 sender.sendMessage(Messages.prefix + Messages.reload.toString());

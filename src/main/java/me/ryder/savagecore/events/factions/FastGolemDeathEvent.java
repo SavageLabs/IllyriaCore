@@ -15,22 +15,24 @@ public class FastGolemDeathEvent implements Listener {
 
     @EventHandler
     public void onIGLava(EntityDamageEvent e) {
-        FLocation loc = new FLocation();
+        FLocation loc = new FLocation(e.getEntity().getLocation());
 
         Faction faction = Board.getInstance().getFactionAt(loc);
 
-            if (Config.fastIronGolemDeath) {
-                if (faction.isNormal()) {
-                    if (IG(e.getEntity()) && Fire(e.getCause())) {
-                        e.setDamage(10000.0D);
+        if (Config.fastIronGolemDeath) {
+            if (faction.isNormal()) {
+                if (isIG(e.getEntity()) && isFire(e.getCause())) {
+                    e.setDamage(10000.0D);
                 }
             }
         }
     }
-        private boolean IG (Entity e) {
-            return e.getType() == EntityType.IRON_GOLEM;
-        }
-        private boolean Fire (DamageCause dc) {
-            return (dc.equals(DamageCause.FIRE) || dc.equals(DamageCause.LAVA) || dc.equals(DamageCause.FIRE_TICK));
-        }
+
+    private boolean isIG(Entity e) {
+        return e.getType() == EntityType.IRON_GOLEM;
+    }
+
+    private boolean isFire(DamageCause dc) {
+        return dc == DamageCause.FIRE || dc == DamageCause.FIRE_TICK || dc == DamageCause.LAVA;
+    }
 }
