@@ -5,15 +5,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import me.ryder.savagecore.utils.Methods;
-import me.ryder.savagecore.persist.Config;
 import me.ryder.savagecore.persist.Messages;
 
 public class BaseCommand implements CommandExecutor {
-
-    private void reloadConfiguration() {
-        Config.load();
-        Messages.load();
-    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -30,7 +24,7 @@ public class BaseCommand implements CommandExecutor {
                     sender.sendMessage(Messages.prefix + Messages.noPerms.toString());
                     return false;
                 }
-                reloadConfiguration();
+                Methods.reloadConfiguration();
                 sender.sendMessage(Messages.prefix + Messages.reload.toString());
                 return true;
             }
