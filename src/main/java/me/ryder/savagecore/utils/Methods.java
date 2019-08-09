@@ -9,6 +9,7 @@ public class Methods {
     public static String pl(String msg) {
         return ChatColor.translateAlternateColorCodes('&', msg);
     }
+
     public static void reloadConfiguration() {
         Config.load();
         Messages.load();
