@@ -15,6 +15,8 @@ public class Messages {
 
     public static Message disabled = new Message("&cThis feature has been disabled.");
 
+    public static Message antiIP = new Message("&cYou can not post personal information in chat!");
+
     public static void save() {
         new Serializer().save(instance);
     }
