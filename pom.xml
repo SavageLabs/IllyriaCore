@@ -90,7 +90,7 @@
         <dependency>
             <groupId>net.prosavage</groupId>
             <artifactId>BasePlugin</artifactId>
-            <version>1.0</version>
+            <version>RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
