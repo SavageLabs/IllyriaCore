@@ -18,6 +18,8 @@ A recode of SavageCoreX that will have more features released as time goes on.
 - AntiItemBurn
 - NoWaterItems with configurable options
 - WeatherToggle with per world support
+- Enderpearl Fix
+- IP Post prevention
 
 # Dependencies #
 - SavageFactions
