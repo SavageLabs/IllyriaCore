@@ -1,24 +1,27 @@
 package me.ryder.savagecore;
 
-import me.ryder.savagecore.cmds.BaseCommand;
+import me.ryder.savagecore.commands.BaseCommand;
 import me.ryder.savagecore.events.*;
 import me.ryder.savagecore.events.autorespawn.AutoRespawnEvent;
 import me.ryder.savagecore.events.factions.AntiWildernessSpawner;
 import me.ryder.savagecore.events.factions.FastGolemDeathEvent;
 import me.ryder.savagecore.events.player.BloodSprayEvent;
 import me.ryder.savagecore.persist.Config;
-import me.ryder.savagecore.persist.Messages;
+import me.ryder.savagecore.utils.FileManager;
+import me.ryder.savagecore.utils.FileManager.Files;
 import net.prosavage.baseplugin.BasePlugin;
 import org.bukkit.event.Listener;
-
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public final class SavageCore extends BasePlugin implements Listener {
+    public static Logger logger;
+    private FileManager fm = FileManager.getInstance();
+    public BaseCommand command;
 
     @Override
     public void onEnable() {
         super.onEnable();
-        getLogger().info("SavageFactions is needed to run this plugin, Certain features will still work but it will throw errors.");
         loadData();
         loadLists();
         loadCmds();
@@ -31,16 +34,17 @@ public final class SavageCore extends BasePlugin implements Listener {
 
     private void loadData() {
         Config.load();
-        Messages.load();
-
+        fm.logInfo(true).setup(this);
     }
+
     private void saveData() {
         Config.save();
-        Messages.save();
+        Files.messages.saveFile();
     }
 
     private void loadCmds() {
-        Objects.requireNonNull(getCommand("sc")).setExecutor(new BaseCommand());
+        this.command = new BaseCommand(this);
+        Objects.requireNonNull(getCommand("sc")).setExecutor(this.command);
     }
 
     private void loadLists() {
@@ -53,16 +57,14 @@ public final class SavageCore extends BasePlugin implements Listener {
         registerListeners(new DenyBlazeDrowning());
         registerListeners(new DenyPoppyDropEvent());
         registerListeners(new DenyWaterRedstone());
-        registerListeners(new DenyPearlGlitchEvent());
         registerListeners(new DenyIPPostEvent());
-        registerListeners(new FastIceBreakEvent());
-        registerListeners(new DenySpawnerGuard());
+        registerListeners(new FastGolemDeathEvent());
 
         registerListeners(new AutoRespawnEvent());
 
         // Faction Checks
         registerListeners(new AntiWildernessSpawner());
-        registerListeners(new FastGolemDeathEvent());
+        registerListeners(new DenyPearlGlitchEvent());
 
         // PVP / Player Based Checks
         registerListeners(new BloodSprayEvent());
