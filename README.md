@@ -20,6 +20,7 @@ A recode of SavageCoreX that will have more features released as time goes on.
 - WeatherToggle with per world support
 - Enderpearl Fix
 - IP Post prevention
+- Fast Ice Break
 
 # Dependencies #
 - SavageFactions
