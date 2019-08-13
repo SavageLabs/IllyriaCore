@@ -10,9 +10,7 @@ commands:
       - savagecore
     description: The base commands for SavageCore
 permissions:
-  savagecore.admin:
-    description: Gives you permissions for everything.
   savagecore.reload:
     description: Allows you to reload the plugin.
-  savagecore.info:
+  savagecore.view:
     description: Displays a list of commands.
