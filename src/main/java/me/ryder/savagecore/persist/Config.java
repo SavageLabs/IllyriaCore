@@ -41,6 +41,9 @@ public class Config {
     public static Set<String> noWeatherInWorlds = new LinkedHashSet<>();
 
     public static boolean pearlGlitchFix = false;
+
+    public static boolean fastIceBreak = false;
+
     static {
         damageTypes.add("FIRE_TICK");
         damageTypes.add("FIRE");
