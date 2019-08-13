@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.StringJoiner;
 
 public enum Messages {
 
@@ -40,11 +41,14 @@ public enum Messages {
     }
 
     public static String convertList(List<String> list) {
-        String message = "";
+
+        final StringJoiner joiner = new StringJoiner("\n");
+
         for (String line : list) {
-            message += Methods.pl(line) + "\n";
+            joiner.add(Methods.pl(line));
         }
-        return message;
+
+        return joiner.toString();
     }
 
     public static void addMissingMessages() {
