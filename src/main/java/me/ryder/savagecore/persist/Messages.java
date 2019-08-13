@@ -19,6 +19,8 @@ public class Messages {
 
     public static Message no_spawner_protect = new Message("&cYou can not cover up spawners");
 
+    public static Message no_spawner_storage = new Message("&cYou can not store spawners!");
+
     public static void save() {
         new Serializer().save(instance);
     }

@@ -46,6 +46,8 @@ public class Config {
 
     public static boolean preventSpawnerProtection = false;
 
+    public static boolean preventSpawnerStorage = false;
+
     static {
         damageTypes.add("FIRE_TICK");
         damageTypes.add("FIRE");
