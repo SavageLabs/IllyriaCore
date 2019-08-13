@@ -1,0 +1,14 @@
+Messages:
+  Prefix: "&e[!] "
+  Plugin-Reload: "&cYou have reloaded the plugin."
+  No-Permissions: "&cYou do not have enough permission to use this."
+  Disabled-Feature: "&cThis feature has been disabled."
+  Anti-Post-IP: "&cYou can not post personal information in chat."
+  No-Spawner-Protection: "&cYou can not cover up spawners."
+  Player-Only: "&cThis command is for players only."
+  Cannot-Store-Spawners: "&cYou can not store spawners."
+  Player-Help:
+    - "&cSavageCore's Help Menu"
+    - ""
+    - "&c/sc help - &7Displays this page to show what you can do."
+    - "&c/sc reload - &7Reloads the entire plugin."

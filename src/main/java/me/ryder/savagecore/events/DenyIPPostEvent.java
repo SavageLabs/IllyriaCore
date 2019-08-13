@@ -1,5 +1,6 @@
 package me.ryder.savagecore.events;
 
+import me.ryder.savagecore.persist.enums.Messages;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -15,7 +16,7 @@ public class DenyIPPostEvent implements Listener {
         for (String part : parts) {
             if (this.isValidIP1(part) || this.isValidIP2(part) || this.isValidIP3(part)) {
                 event.setCancelled(true);
-                event.getPlayer().sendMessage(Messages.antiIP.toString());
+                event.getPlayer().sendMessage(Messages.ANTI_POST_IP.getMessage());
             }
         }
     }
