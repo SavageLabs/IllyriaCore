@@ -1,9 +1,8 @@
 package me.ryder.savagecore.events;
 
 import me.ryder.savagecore.persist.Config;
-import me.ryder.savagecore.persist.Messages;
+import me.ryder.savagecore.persist.enums.Messages;
 import net.prosavage.baseplugin.XMaterial;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -13,61 +12,59 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-
 import java.util.Arrays;
 
 public class DenySpawnerGuard implements Listener {
 
     private Material spawner = XMaterial.SPAWNER.parseMaterial();
-
+    @SuppressWarnings("deprecation")
     @EventHandler
-    public void spawnerPlacement(PlayerInteractEvent event) {
+    public void spawnerPlacement(PlayerInteractEvent e) {
 
         if (!Config.preventSpawnerProtection) return;
 
-        if (event.isCancelled()) return;
+        if (e.isCancelled()) return;
 
-        Player player = event.getPlayer();
+        Player player = e.getPlayer();
 
         if (player.getItemInHand() == null) return;
 
-        if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+        if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (!player.getItemInHand().getType().equals(spawner)) {
-                if (event.getBlockFace().equals(BlockFace.UP) || event.getBlockFace().equals(BlockFace.DOWN)) return;
+                if (e.getBlockFace().equals(BlockFace.UP) || e.getBlockFace().equals(BlockFace.DOWN)) return;
 
-                if (!event.getClickedBlock().getType().equals(spawner)) return;
+                if (!e.getClickedBlock().getType().equals(spawner)) return;
 
-                event.setCancelled(true);
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.no_spawner_protect.toString()));
+                e.setCancelled(true);
+                player.sendMessage(Messages.NO_SPAWNER_PROTECTION.getMessage());
             } else if (player.getItemInHand().getType().equals(spawner)) {
-                if (event.getClickedBlock().getType().equals(spawner)) return;
+                if (e.getClickedBlock().getType().equals(spawner)) return;
 
-                if (event.getBlockFace().equals(BlockFace.UP) || event.getBlockFace().equals(BlockFace.DOWN)) return;
-
-                event.setCancelled(true);
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.no_spawner_protect.toString()));
+                if (e.getBlockFace().equals(BlockFace.UP) || e.getBlockFace().equals(BlockFace.DOWN)) return;
+                e.setCancelled(true);
+                player.sendMessage(Messages.NO_SPAWNER_PROTECTION.getMessage());
             }
         }
     }
 
     @EventHandler
-    public void spawnerProtectionCheck(BlockPlaceEvent event) {
+    public void spawnerProtectionCheck(BlockPlaceEvent e) {
 
         if (!Config.preventSpawnerProtection) return;
 
-        if (event.isCancelled()) return;
+        if (e.isCancelled()) return;
 
-        Block blockPlaced = event.getBlockPlaced();
-        Player player = event.getPlayer();
+        Block blockPlaced = e.getBlockPlaced();
+        Player player = e.getPlayer();
 
         if (blockPlaced == null) return;
 
         if (blockPlaced.getType() == spawner) {
             for (BlockFace blockFace : Arrays.asList(BlockFace.WEST, BlockFace.EAST, BlockFace.SOUTH, BlockFace.NORTH)) {
-                if (event.getBlockPlaced().getRelative(blockFace).getType() != spawner) {
-                    if (event.getBlockPlaced().getRelative(blockFace).getType() != Material.AIR) {
-                        event.setCancelled(true);
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.no_spawner_protect.toString()));
+                if (e.getBlockPlaced().getRelative(blockFace).getType() != spawner) {
+                    if (e.getBlockPlaced().getRelative(blockFace).getType() != Material.AIR) {
+                        e.setCancelled(true);
+                        player.sendMessage(Messages.NO_SPAWNER_PROTECTION.getMessage());
                         return;
                     }
                 }
@@ -75,15 +72,12 @@ public class DenySpawnerGuard implements Listener {
         } else if (blockPlaced.getType() != spawner) {
 
             for (BlockFace blockFace : Arrays.asList(BlockFace.WEST, BlockFace.EAST, BlockFace.SOUTH, BlockFace.NORTH)) {
-                if (event.getBlockPlaced().getRelative(blockFace).getType() == spawner) {
-                    event.setCancelled(true);
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', Messages.no_spawner_protect.toString()));
+                if (e.getBlockPlaced().getRelative(blockFace).getType() == spawner) {
+                    e.setCancelled(true);
+                    player.sendMessage(Messages.NO_SPAWNER_PROTECTION.getMessage());
                     return;
                 }
             }
-
         }
     }
-
-
 }

@@ -15,7 +15,6 @@ public class AutoRespawnEvent implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
-
         if (Config.respawnScreenToggle) {
                 Location dl = e.getEntity().getLocation();
                 Player p = e.getEntity();

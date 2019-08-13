@@ -1,6 +1,5 @@
 package me.ryder.savagecore.events;
 
-import com.massivecraft.factions.Conf;
 import com.massivecraft.factions.listeners.FactionsPlayerListener;
 import me.ryder.savagecore.persist.Config;
 import org.bukkit.Material;
@@ -21,7 +20,5 @@ public class FastIceBreakEvent implements Listener {
             event.getBlock().breakNaturally();
             event.setCancelled(true);
         }
-
     }
-
 }

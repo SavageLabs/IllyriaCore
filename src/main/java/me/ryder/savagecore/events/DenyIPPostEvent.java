@@ -1,6 +1,5 @@
 package me.ryder.savagecore.events;
 
-import me.ryder.savagecore.persist.Messages;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -20,7 +19,6 @@ public class DenyIPPostEvent implements Listener {
             }
         }
     }
-
 
     private boolean isValidIP1(String ip) {
         Pattern pattern = Pattern.compile("^(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})$");

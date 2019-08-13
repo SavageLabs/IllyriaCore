@@ -13,9 +13,9 @@ public class DenyEndermanEvent implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onEntityChangeBlock(EntityChangeBlockEvent e) {
-        Entity ent = e.getEntity();
-        if (ent instanceof Enderman) {
-            if (Config.enderManGriefToggle) {
+        if (Config.enderManGriefToggle) {
+            Entity ent = e.getEntity();
+            if (ent instanceof Enderman) {
                 e.setCancelled(true);
             }
         }
