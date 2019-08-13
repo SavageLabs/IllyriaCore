@@ -1,5 +1,6 @@
 package me.ryder.savagecore.events;
 
+import me.ryder.savagecore.persist.Config;
 import me.ryder.savagecore.persist.Messages;
 import net.prosavage.baseplugin.XMaterial;
 import org.bukkit.ChatColor;
@@ -21,6 +22,9 @@ public class DenySpawnerGuard implements Listener {
 
     @EventHandler
     public void spawnerPlacement(PlayerInteractEvent event) {
+
+        if (!Config.preventSpawnerProtection) return;
+
         if (event.isCancelled()) return;
 
         Player player = event.getPlayer();
@@ -48,6 +52,8 @@ public class DenySpawnerGuard implements Listener {
 
     @EventHandler
     public void spawnerProtectionCheck(BlockPlaceEvent event) {
+
+        if (!Config.preventSpawnerProtection) return;
 
         if (event.isCancelled()) return;
 
