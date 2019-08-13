@@ -60,6 +60,8 @@ public final class SavageCore extends BasePlugin implements Listener {
         registerListeners(new DenyIPPostEvent());
         registerListeners(new DenySpawnerStorage());
         registerListeners(new FastGolemDeathEvent());
+        registerListeners(new DenyPearlGlitchEvent());
+        registerListeners(new FastIceBreakEvent());
 
         registerListeners(new AutoRespawnEvent());
 
