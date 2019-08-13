@@ -44,6 +44,8 @@ public class Config {
 
     public static boolean fastIceBreak = false;
 
+    public static boolean preventSpawnerStorage = false;
+
     public static boolean preventSpawnerProtection = false;
 
     static {

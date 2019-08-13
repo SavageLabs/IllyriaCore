@@ -6,6 +6,7 @@ Messages:
   Anti-Post-IP: "&cYou can not post personal information in chat."
   No-Spawner-Protection: "&cYou can not cover up spawners."
   Player-Only: "&cThis command is for players only."
+  Cannot-Store-Spawners: "&cYou can not store spawners."
   Player-Help:
     - "&cSavageCore's Help Menu"
     - ""

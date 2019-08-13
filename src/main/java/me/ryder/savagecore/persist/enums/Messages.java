@@ -16,6 +16,7 @@ public enum Messages {
     NO_SPAWNER_PROTECTION("Messages.No-Spawner-Protection", "&cYou can not cover up spawners."),
     PLUGIN_RELOAD("Messages.Plugin-Reload", "&cYou have reloaded the plugin."),
     PLAYER_ONLY("Messages.Player-Only", "&cThis command is for players only."),
+    CANNOT_STORE_SPAWNERS("Messages.Cannot-Store-Spawners", "&cYou can not store spawners."),
     PLAYER_HELP("Messages.Player-Help",
             Arrays.asList(
                     "&cSavageCore's Help Menu",
