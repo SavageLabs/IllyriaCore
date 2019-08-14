@@ -40,17 +40,6 @@ public enum Messages {
         this.defaultListMessage = defaultListMessage;
     }
 
-    public static String convertList(List<String> list) {
-
-        final StringJoiner joiner = new StringJoiner("\n");
-
-        for (String line : list) {
-            joiner.add(Methods.pl(line));
-        }
-
-        return joiner.toString();
-    }
-
     public static void addMissingMessages() {
         FileConfiguration messages = Files.messages.getFile();
         boolean saveFile = false;
