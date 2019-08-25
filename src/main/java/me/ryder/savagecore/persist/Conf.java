@@ -66,6 +66,6 @@ public class Conf {
     }
 
     public static void load() {
-        new Serializer().load(instance, Conf.class, "config");
+        new Serializer().load(instance, Conf.class, "conf");
     }
 }
