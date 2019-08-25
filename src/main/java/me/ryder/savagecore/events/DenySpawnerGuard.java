@@ -12,11 +12,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 import java.util.Arrays;
+import java.util.List;
 
 public class DenySpawnerGuard implements Listener {
 
-    private Material spawner = XMaterial.SPAWNER.parseMaterial();
+    private final List<BlockFace> blockFaces = Arrays.asList(BlockFace.WEST, BlockFace.EAST, BlockFace.SOUTH, BlockFace.NORTH);
+    private final Material spawner = XMaterial.SPAWNER.parseMaterial();
+
     @SuppressWarnings("deprecation")
     @EventHandler
     public void spawnerPlacement(PlayerInteractEvent e) {
@@ -26,18 +30,19 @@ public class DenySpawnerGuard implements Listener {
         if (e.isCancelled()) return;
 
         Player player = e.getPlayer();
+        ItemStack inHand = player.getItemInHand();
 
-        if (player.getItemInHand() == null) return;
+        if (inHand == null) return;
 
         if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            if (!player.getItemInHand().getType().equals(spawner)) {
+            if (!inHand.getType().equals(spawner)) {
                 if (e.getBlockFace().equals(BlockFace.UP) || e.getBlockFace().equals(BlockFace.DOWN)) return;
 
                 if (!e.getClickedBlock().getType().equals(spawner)) return;
 
                 e.setCancelled(true);
                 player.sendMessage(Messages.NO_SPAWNER_PROTECTION.getMessage());
-            } else if (player.getItemInHand().getType().equals(spawner)) {
+            } else if (inHand.getType().equals(spawner)) {
                 if (e.getClickedBlock().getType().equals(spawner)) return;
 
                 if (e.getBlockFace().equals(BlockFace.UP) || e.getBlockFace().equals(BlockFace.DOWN)) return;
@@ -60,7 +65,7 @@ public class DenySpawnerGuard implements Listener {
         if (blockPlaced == null) return;
 
         if (blockPlaced.getType() == spawner) {
-            for (BlockFace blockFace : Arrays.asList(BlockFace.WEST, BlockFace.EAST, BlockFace.SOUTH, BlockFace.NORTH)) {
+            for (BlockFace blockFace : blockFaces) {
                 if (e.getBlockPlaced().getRelative(blockFace).getType() != spawner) {
                     if (e.getBlockPlaced().getRelative(blockFace).getType() != Material.AIR) {
                         e.setCancelled(true);
@@ -70,8 +75,7 @@ public class DenySpawnerGuard implements Listener {
                 }
             }
         } else if (blockPlaced.getType() != spawner) {
-
-            for (BlockFace blockFace : Arrays.asList(BlockFace.WEST, BlockFace.EAST, BlockFace.SOUTH, BlockFace.NORTH)) {
+            for (BlockFace blockFace : blockFaces) {
                 if (e.getBlockPlaced().getRelative(blockFace).getType() == spawner) {
                     e.setCancelled(true);
                     player.sendMessage(Messages.NO_SPAWNER_PROTECTION.getMessage());

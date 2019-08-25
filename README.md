@@ -6,21 +6,22 @@ WIKI: https://wiki.prosavage.net/display/SAV/Getting+Started
 A recode of SavageCoreX that will have more features released as time goes on.
 
 # Current Features # 
-- AntiFireSpread with configurable DamageTypes
+- AntiSpawnerStorage
+- AntiFireSpread - configurable options
 - AntiIceMelt
 - AntiEnderManGrief
 - AntiBlazeDrowning
-- NoPoppyDrop
-- FastIGDeath
+- AntiPoppyDrop
 - AntiSpawnerWilderness
-- AntiBabyMobs
-- NoRespawnScreen
 - AntiItemBurn
-- NoWaterItems with configurable options
-- WeatherToggle with per world support
-- Enderpearl Fix
-- IP Post prevention
-- Fast Ice Break
+- SpawnerGuard
+- NoRespawnScreen
+- FastIGDeath
+- EnderPearl Fix
+- IP Post Prevention
+- FastIceBreak
+- NoWaterItems - configurable options
+- WeatherToggle - per world support
 
 # Dependencies #
 - SavageFactions

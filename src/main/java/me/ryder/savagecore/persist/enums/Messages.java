@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.StringJoiner;
 
 public enum Messages {
 
@@ -39,14 +40,6 @@ public enum Messages {
         this.defaultListMessage = defaultListMessage;
     }
 
-    public static String convertList(List<String> list) {
-        String message = "";
-        for (String line : list) {
-            message += Methods.pl(line) + "\n";
-        }
-        return message;
-    }
-
     public static void addMissingMessages() {
         FileConfiguration messages = Files.messages.getFile();
         boolean saveFile = false;
@@ -73,6 +66,14 @@ public enum Messages {
         HashMap<String, String> placeholders = new HashMap<>();
         placeholders.put(placeholder, replacement);
         return getMessage(placeholders, true);
+    }
+
+    public static String convertList(List<String> list) {
+        String message = "";
+        for (String line : list) {
+            message += Methods.pl(line) + "\n";
+        }
+        return message;
     }
 
     public String getMessage(HashMap<String, String> placeholders) {
