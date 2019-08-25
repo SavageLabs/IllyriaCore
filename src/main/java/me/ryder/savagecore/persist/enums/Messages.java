@@ -118,12 +118,12 @@ public enum Messages {
             message = message.replaceAll(placeholder, placeholders.get(placeholder))
                     .replaceAll(placeholder.toLowerCase(), placeholders.get(placeholder));
         }
-        if (isList) {//Don't want to add a prefix to a list of messages.
+        if (isList) {
             return Methods.pl(message);
-        } else {//If the message isn't a list.
-            if (prefix) {//If the message needs a prefix.
+        } else {
+            if (prefix) {
                 return Methods.getPrefix(message);
-            } else {//If the message doesn't need a prefix.
+            } else {
                 return Methods.pl(message);
             }
         }

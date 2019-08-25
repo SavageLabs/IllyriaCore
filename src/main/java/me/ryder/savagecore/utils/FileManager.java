@@ -202,7 +202,8 @@ public class FileManager {
 
     public enum Files {
 
-        messages("messages.yml", "messages.yml");
+        messages("messages.yml", "messages.yml"),
+        config("config.yml", "config.yml");
 
         private String fileName;
         private String fileLocation;

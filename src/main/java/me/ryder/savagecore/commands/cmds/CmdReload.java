@@ -2,9 +2,9 @@ package me.ryder.savagecore.commands.cmds;
 
 import me.ryder.savagecore.SavageCore;
 import me.ryder.savagecore.commands.AbstractCommand;
-import me.ryder.savagecore.persist.Config;
+import me.ryder.savagecore.persist.Conf;
 import me.ryder.savagecore.persist.enums.Messages;
-import me.ryder.savagecore.utils.FileManager;
+import me.ryder.savagecore.utils.FileManager.Files;
 import org.bukkit.command.CommandSender;
 
 public class CmdReload extends AbstractCommand {
@@ -14,8 +14,9 @@ public class CmdReload extends AbstractCommand {
     }
 
     public boolean execute(CommandSender s, String[] args) {
-        FileManager.Files.messages.reloadFile();
-        Config.load();
+        Files.messages.reloadFile();
+        Files.config.reloadFile();
+        Conf.load();
 
         s.sendMessage(Messages.PLUGIN_RELOAD.getMessage());
         return false;

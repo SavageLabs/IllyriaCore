@@ -1,7 +1,7 @@
 package me.ryder.savagecore.events;
 
 import com.massivecraft.factions.listeners.FactionsPlayerListener;
-import me.ryder.savagecore.persist.Config;
+import me.ryder.savagecore.persist.Conf;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,7 +11,7 @@ public class FastIceBreakEvent implements Listener {
 
     @EventHandler
     public void onIceHit(BlockDamageEvent event) {
-        if (!Config.fastIceBreak) return;
+        if (!Conf.fastIceBreak) return;
 
         if (event.isCancelled()) return;
 

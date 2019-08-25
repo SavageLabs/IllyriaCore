@@ -1,6 +1,6 @@
 package me.ryder.savagecore.events;
 
-import me.ryder.savagecore.persist.Config;
+import me.ryder.savagecore.persist.Conf;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
@@ -15,7 +15,7 @@ public class DenyPearlGlitchEvent implements Listener {
     @EventHandler
     public void onPearlTeleport(PlayerTeleportEvent event) {
 
-        if (Config.pearlGlitchFix) {
+        if (Conf.pearlGlitchFix) {
             if (event.getCause() == PlayerTeleportEvent.TeleportCause.ENDER_PEARL) {
                 Location to = event.getTo();
                 if (Objects.requireNonNull(to).getBlock().getRelative(BlockFace.UP).getType().isSolid()) {

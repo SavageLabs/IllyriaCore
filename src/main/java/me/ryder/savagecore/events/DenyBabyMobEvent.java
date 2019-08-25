@@ -4,13 +4,12 @@ import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
-
-import me.ryder.savagecore.persist.Config;
+import me.ryder.savagecore.persist.Conf;
 
 public class DenyBabyMobEvent implements Listener {
     @EventHandler
     public void onZombieSpawn(CreatureSpawnEvent e) {
-        if (Config.babyMobToggle && e.getEntity() instanceof Zombie) {
+        if (Conf.babyMobToggle && e.getEntity() instanceof Zombie) {
             Zombie z = (Zombie) e.getEntity();
             if (z.isBaby() && z.isInsideVehicle()) {
                 e.setCancelled(true);

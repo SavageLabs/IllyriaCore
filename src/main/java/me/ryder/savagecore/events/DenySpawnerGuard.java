@@ -1,6 +1,6 @@
 package me.ryder.savagecore.events;
 
-import me.ryder.savagecore.persist.Config;
+import me.ryder.savagecore.persist.Conf;
 import me.ryder.savagecore.persist.enums.Messages;
 import net.prosavage.baseplugin.XMaterial;
 import org.bukkit.Material;
@@ -21,7 +21,7 @@ public class DenySpawnerGuard implements Listener {
     @EventHandler
     public void spawnerPlacement(PlayerInteractEvent e) {
 
-        if (!Config.preventSpawnerProtection) return;
+        if (!Conf.preventSpawnerProtection) return;
 
         if (e.isCancelled()) return;
 
@@ -50,7 +50,7 @@ public class DenySpawnerGuard implements Listener {
     @EventHandler
     public void spawnerProtectionCheck(BlockPlaceEvent e) {
 
-        if (!Config.preventSpawnerProtection) return;
+        if (!Conf.preventSpawnerProtection) return;
 
         if (e.isCancelled()) return;
 

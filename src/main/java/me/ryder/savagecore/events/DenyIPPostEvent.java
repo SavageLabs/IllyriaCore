@@ -4,7 +4,6 @@ import me.ryder.savagecore.persist.enums.Messages;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

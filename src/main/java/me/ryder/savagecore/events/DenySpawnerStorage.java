@@ -1,6 +1,6 @@
 package me.ryder.savagecore.events;
 
-import me.ryder.savagecore.persist.Config;
+import me.ryder.savagecore.persist.Conf;
 import me.ryder.savagecore.persist.enums.Messages;
 import net.prosavage.baseplugin.XMaterial;
 import org.bukkit.entity.Player;
@@ -17,7 +17,7 @@ public class DenySpawnerStorage implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
 
-        if (!Config.preventSpawnerStorage) return;
+        if (!Conf.preventSpawnerStorage) return;
 
         if (e.isCancelled()) return;
 
@@ -46,7 +46,7 @@ public class DenySpawnerStorage implements Listener {
     @EventHandler
     public void onInventoryDrag(InventoryDragEvent e) {
         Player player = (Player) e.getWhoClicked();
-        if (!Config.preventSpawnerStorage) return;
+        if (!Conf.preventSpawnerStorage) return;
 
         if (e.isCancelled()) return;
 
@@ -66,7 +66,7 @@ public class DenySpawnerStorage implements Listener {
     @EventHandler
     public void onHopperMoveEvent(InventoryMoveItemEvent e) {
 
-        if (!Config.preventSpawnerStorage) return;
+        if (!Conf.preventSpawnerStorage) return;
 
         if (e.isCancelled()) return;
 

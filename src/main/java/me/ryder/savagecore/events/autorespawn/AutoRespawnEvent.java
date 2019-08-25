@@ -8,14 +8,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import java.util.Objects;
-
-import me.ryder.savagecore.persist.Config;
+import me.ryder.savagecore.persist.Conf;
 
 public class AutoRespawnEvent implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
-        if (Config.respawnScreenToggle) {
+        if (Conf.respawnScreenToggle) {
                 Location dl = e.getEntity().getLocation();
                 Player p = e.getEntity();
                 PreAutoRespawnEvent pre = new PreAutoRespawnEvent(p, dl);

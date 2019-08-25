@@ -4,9 +4,9 @@ import me.ryder.savagecore.commands.BaseCommand;
 import me.ryder.savagecore.events.*;
 import me.ryder.savagecore.events.autorespawn.AutoRespawnEvent;
 import me.ryder.savagecore.events.factions.AntiWildernessSpawner;
-import me.ryder.savagecore.events.factions.FastGolemDeathEvent;
+import me.ryder.savagecore.events.mobs.FastIronGolemDeath;
 import me.ryder.savagecore.events.player.BloodSprayEvent;
-import me.ryder.savagecore.persist.Config;
+import me.ryder.savagecore.persist.Conf;
 import me.ryder.savagecore.utils.FileManager;
 import me.ryder.savagecore.utils.FileManager.Files;
 import net.prosavage.baseplugin.BasePlugin;
@@ -33,13 +33,14 @@ public final class SavageCore extends BasePlugin implements Listener {
     }
 
     private void loadData() {
-        Config.load();
+        Conf.load();
         fm.logInfo(true).setup(this);
     }
 
     private void saveData() {
-        Config.save();
+        Conf.save();
         Files.messages.saveFile();
+        Files.config.saveFile();
     }
 
     private void loadCmds() {
@@ -55,12 +56,11 @@ public final class SavageCore extends BasePlugin implements Listener {
         registerListeners(new DenyEndermanEvent());
         registerListeners(new DenyFireSpreadEvent());
         registerListeners(new DenyBlazeDrowning());
-        registerListeners(new DenyPoppyDropEvent());
         registerListeners(new DenyWaterRedstone());
         registerListeners(new DenyIPPostEvent());
         registerListeners(new DenySpawnerStorage());
         registerListeners(new DenySpawnerGuard());
-        registerListeners(new FastGolemDeathEvent());
+        registerListeners(new FastIronGolemDeath());
         registerListeners(new FastIceBreakEvent());
 
         registerListeners(new AutoRespawnEvent());

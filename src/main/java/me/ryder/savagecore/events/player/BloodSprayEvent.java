@@ -1,6 +1,6 @@
 package me.ryder.savagecore.events.player;
 
-import me.ryder.savagecore.persist.Config;
+import me.ryder.savagecore.persist.Conf;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
@@ -13,7 +13,7 @@ public class BloodSprayEvent implements Listener {
 
     @EventHandler
     public void onPlayerHit(EntityDamageEvent e) {
-        if (Config.bloodSprayToggle) {
+        if (Conf.bloodSprayToggle) {
             if (!(e.getEntity() instanceof Player)) {
                 return;
             }

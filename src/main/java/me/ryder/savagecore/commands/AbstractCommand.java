@@ -10,8 +10,8 @@ public abstract class AbstractCommand implements Executable {
     public Set<String> alias;
 
     public AbstractCommand(SavageCore plugin, String label, boolean playerRequired) {
-        this.alias = new HashSet();
-        this.args = new ArrayList();
+        this.alias = new HashSet<>();
+        this.args = new ArrayList<>();
         this.label = label;
         this.playerRequired = playerRequired;
         this.plugin = plugin;

@@ -6,15 +6,14 @@ import com.massivecraft.factions.Faction;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.SpawnerSpawnEvent;
-
-import me.ryder.savagecore.persist.Config;
+import me.ryder.savagecore.persist.Conf;
 
 public class AntiWildernessSpawner implements Listener {
 
     @EventHandler
     public void onSpawnerSpawn(SpawnerSpawnEvent e) {
 
-        if (Config.antiWildernessSpawner) {
+        if (Conf.antiWildernessSpawner) {
             FLocation loc = new FLocation(e.getSpawner().getLocation());
 
             Faction faction = Board.getInstance().getFactionAt(loc);
