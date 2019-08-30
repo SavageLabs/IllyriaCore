@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events.autorespawn;
+package net.savagellc.savagecore.listeners.autorespawn;
 
 import org.bukkit.event.Event;
 import org.bukkit.Location;

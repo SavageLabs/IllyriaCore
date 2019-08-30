@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events;
+package net.savagellc.savagecore.listeners;
 
 import net.savagellc.savagecore.persist.enums.Messages;
 import org.bukkit.event.EventHandler;

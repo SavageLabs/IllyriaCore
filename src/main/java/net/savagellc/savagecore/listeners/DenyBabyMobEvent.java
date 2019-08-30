@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events;
+package net.savagellc.savagecore.listeners;
 
 import net.savagellc.savagecore.persist.Conf;
 import org.bukkit.entity.Zombie;

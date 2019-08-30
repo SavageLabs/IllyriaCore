@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events;
+package net.savagellc.savagecore.listeners;
 
 import com.massivecraft.factions.Board;
 import com.massivecraft.factions.FLocation;

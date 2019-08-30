@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events.player;
+package net.savagellc.savagecore.listeners.player;
 
 import net.savagellc.savagecore.persist.Conf;
 import org.bukkit.Effect;
