@@ -5,9 +5,9 @@ api-version: '1.13'
 authors: [Ryder]
 description: A plugin to improve the Factions experience.
 commands:
-  sc:
+  savagecore:
     aliases:
-      - savagecore
+      - score
     description: The base commands for SavageCore
 permissions:
   savagecore.reload:
