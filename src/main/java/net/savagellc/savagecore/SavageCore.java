@@ -2,26 +2,25 @@ package net.savagellc.savagecore;
 
 import net.prosavage.baseplugin.BasePlugin;
 import net.savagellc.savagecore.commands.BaseCommand;
-import net.savagellc.savagecore.events.*;
-import net.savagellc.savagecore.events.autorespawn.AutoRespawnEvent;
-import net.savagellc.savagecore.events.factions.AntiWildernessSpawner;
-import net.savagellc.savagecore.events.mobs.FastIronGolemDeath;
-import net.savagellc.savagecore.events.player.BloodSprayEvent;
+import net.savagellc.savagecore.listeners.*;
+import net.savagellc.savagecore.listeners.autorespawn.AutoRespawn;
+import net.savagellc.savagecore.listeners.factions.AntiWildernessSpawner;
+import net.savagellc.savagecore.listeners.mobs.FastIronGolemDeath;
+import net.savagellc.savagecore.listeners.pvp.BloodSpray;
 import net.savagellc.savagecore.persist.Conf;
-import net.savagellc.savagecore.utils.FileManager;
-import net.savagellc.savagecore.utils.FileManager.Files;
+import net.savagellc.savagecore.persist.Messages;
+import net.savagellc.trackx.TrackX;
 import org.bukkit.event.Listener;
-
 import java.util.Objects;
 import java.util.logging.Logger;
 
 public final class SavageCore extends BasePlugin implements Listener {
     public static Logger logger;
-    private FileManager fm = FileManager.getInstance();
     public BaseCommand command;
 
     @Override
     public void onEnable() {
+        TrackX.startTracking("savagecorex", this.getDescription().getVersion(), "net.savagellc.savagecore");
         super.onEnable();
         loadData();
         loadLists();
@@ -29,19 +28,11 @@ public final class SavageCore extends BasePlugin implements Listener {
     }
 
     @Override
-    public void onDisable() {
-        saveData();
-    }
+    public void onDisable() { saveData(); }
 
-    private void loadData() {
-        Conf.load();
-        fm.logInfo(true).setup(this);
-    }
+    private void loadData() { Conf.load(); Messages.load(); }
 
-    private void saveData() {
-        Conf.save();
-        Files.messages.saveFile();
-    }
+    private void saveData() { Conf.save(); Messages.save(); }
 
     private void loadCmds() {
         this.command = new BaseCommand(this);
@@ -49,23 +40,23 @@ public final class SavageCore extends BasePlugin implements Listener {
     }
 
     private void loadLists() {
-        registerListeners(new DenyItemBurnEvent(),
-                new DenyIceMeltEvent(),
-                new DenyBabyMobEvent(),
-                new DenyWeatherEvent(),
-                new DenyEndermanEvent(),
-                new DenyFireSpreadEvent(),
+        registerListeners(new DenyItemBurn(),
+                new DenyIceMelt(),
+                new DenyBabyMob(),
+                new DenyWeather(),
+                new DenyEndermanAI(),
+                new DenyFireSpread(),
                 new DenyBlazeDrowning(),
-                new DenyWaterRedstone(),
-                new DenyIPPostEvent(),
+                new DenyWaterItems(),
+                new DenyIPPost(),
                 new DenySpawnerStorage(),
                 new DenySpawnerGuard(),
+                new DenyPearlGlitch(),
+                new DenyMobItemPickUp(),
                 new FastIronGolemDeath(),
-                new FastIceBreakEvent(),
-                new AutoRespawnEvent(),
+                new FastIceBreak(),
+                new AutoRespawn(),
                 new AntiWildernessSpawner(),
-                new DenyPearlGlitchEvent(),
-                new BloodSprayEvent());
-
+                new BloodSpray());
     }
 }
