@@ -2,7 +2,7 @@ package net.savagellc.savagecore.commands.cmds;
 
 import net.savagellc.savagecore.SavageCore;
 import net.savagellc.savagecore.commands.AbstractCommand;
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import net.savagellc.savagecore.persist.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -16,9 +16,9 @@ public class CmdReload extends AbstractCommand {
 
     public boolean execute(CommandSender s, String[] args) {
         Messages.load();
-        Conf.load();
+        Config.load();
         for (Player p : Bukkit.getOnlinePlayers()) {
-            p.setMaximumNoDamageTicks(Conf.noHitDelaySettings.delay);
+            p.setMaximumNoDamageTicks(Config.noHitDelaySettings.delay);
         }
         s.sendMessage(Messages.prefix + Messages.reloadConfig.toString());
         return false;

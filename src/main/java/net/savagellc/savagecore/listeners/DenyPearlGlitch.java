@@ -1,7 +1,7 @@
 package net.savagellc.savagecore.listeners;
 
 import net.prosavage.baseplugin.XMaterial;
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
@@ -18,7 +18,7 @@ public class DenyPearlGlitch implements Listener {
     public void onPearlTeleport(PlayerTeleportEvent e) {
         Player p = e.getPlayer();
         Material ep = XMaterial.ENDER_PEARL.parseMaterial();
-        if (Conf.denyPearlGlitch) {
+        if (Config.denyPearlGlitch) {
             if (e.getCause() == PlayerTeleportEvent.TeleportCause.ENDER_PEARL) {
                 Location to = e.getTo();
                 if (Objects.requireNonNull(to).getBlock().getRelative(BlockFace.UP).getType().isSolid()) {

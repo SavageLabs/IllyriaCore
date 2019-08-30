@@ -1,6 +1,6 @@
 package net.savagellc.savagecore.listeners;
 
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
@@ -11,7 +11,7 @@ public class DenyMobItemPickUp implements Listener {
 
     @EventHandler
     public void onEntityPickUp(EntityPickupItemEvent e) {
-        if (Conf.denyMobItemPickup) {
+        if (Config.denyMobItemPickup) {
             if (isZombie(e.getEntity())) {
                 e.setCancelled(true);
             }

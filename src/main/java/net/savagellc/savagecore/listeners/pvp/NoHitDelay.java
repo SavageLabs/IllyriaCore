@@ -1,6 +1,6 @@
 package net.savagellc.savagecore.listeners.pvp;
 
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,33 +14,33 @@ public class NoHitDelay implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
-        if (Conf.noHitDelaySettings.toggle) {
+        if (Config.noHitDelaySettings.toggle) {
             for (Player p : Bukkit.getOnlinePlayers()) {
-                p.setMaximumNoDamageTicks(Conf.noHitDelaySettings.delay);
+                p.setMaximumNoDamageTicks(Config.noHitDelaySettings.delay);
             }
         }
     }
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
-        if (Conf.noHitDelaySettings.toggle) {
+        if (Config.noHitDelaySettings.toggle) {
             for (Player p : Bukkit.getOnlinePlayers()) {
-                p.setMaximumNoDamageTicks(Conf.noHitDelaySettings.delay);
+                p.setMaximumNoDamageTicks(Config.noHitDelaySettings.delay);
             }
         }
     }
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e) {
-        if (Conf.noHitDelaySettings.toggle) {
+        if (Config.noHitDelaySettings.toggle) {
             for (Player p : Bukkit.getOnlinePlayers()) {
-                p.setMaximumNoDamageTicks(Conf.noHitDelaySettings.delay);
+                p.setMaximumNoDamageTicks(Config.noHitDelaySettings.delay);
             }
         }
     }
     @EventHandler
     public void onTeleportEvent(PlayerTeleportEvent e) {
-        if (Conf.noHitDelaySettings.toggle) {
+        if (Config.noHitDelaySettings.toggle) {
             for (Player p : Bukkit.getOnlinePlayers()) {
-                p.setMaximumNoDamageTicks(Conf.noHitDelaySettings.delay);
+                p.setMaximumNoDamageTicks(Config.noHitDelaySettings.delay);
             }
         }
     }

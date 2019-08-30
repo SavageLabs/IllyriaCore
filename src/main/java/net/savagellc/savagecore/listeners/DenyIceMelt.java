@@ -1,6 +1,6 @@
 package net.savagellc.savagecore.listeners;
 
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -11,7 +11,7 @@ public class DenyIceMelt implements Listener {
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void iceMelt(BlockFadeEvent e) {
-        if (Conf.denyIceMelt) {
+        if (Config.denyIceMelt) {
             if (e.getBlock().getType() == XMaterial.ICE.parseMaterial() || e.getBlock().getType() == XMaterial.PACKED_ICE.parseMaterial()) {
                 e.setCancelled(true);
             }

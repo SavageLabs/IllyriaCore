@@ -1,6 +1,6 @@
 package net.savagellc.savagecore.listeners;
 
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -11,7 +11,7 @@ public class DenyFireSpread implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void disableFireSpread(BlockIgniteEvent e) {
-        if (Conf.denyFireSpread && e.getCause() == IgniteCause.SPREAD) {
+        if (Config.denyFireSpread && e.getCause() == IgniteCause.SPREAD) {
             e.setCancelled(true);
         }
     }

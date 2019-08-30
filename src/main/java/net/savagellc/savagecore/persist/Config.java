@@ -3,12 +3,11 @@ package net.savagellc.savagecore.persist;
 import net.prosavage.baseplugin.serializer.Serializer;
 import net.savagellc.savagecore.persist.settings.FastIronGolemDeathSettings;
 import net.savagellc.savagecore.persist.settings.NoHitDelaySettings;
-
 import java.util.*;
 
-public class Conf {
+public class Config {
 
-    private static transient Conf instance = new Conf();
+    private static transient Config instance = new Config();
 
     public static boolean bloodSprayToggle = false;
 
@@ -81,6 +80,6 @@ public class Conf {
     }
 
     public static void load() {
-        new Serializer().load(instance, Conf.class, "conf");
+        new Serializer().load(instance, Config.class, "config");
     }
 }

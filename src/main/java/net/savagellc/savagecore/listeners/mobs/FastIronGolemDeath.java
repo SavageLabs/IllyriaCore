@@ -1,6 +1,6 @@
 package net.savagellc.savagecore.listeners.mobs;
 
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import net.prosavage.baseplugin.XMaterial;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -14,15 +14,15 @@ import org.bukkit.event.entity.EntityDeathEvent;
 public class FastIronGolemDeath implements Listener {
     @EventHandler
     public void onIGDeath(EntityDamageEvent e) {
-        if (Conf.fastIronGolemDeathSettings.toggle) {
+        if (Config.fastIronGolemDeathSettings.toggle) {
             if (isIG(e.getEntity()) && isF(e.getCause())) {
-                e.setDamage(Conf.fastIronGolemDeathSettings.damage);
+                e.setDamage(Config.fastIronGolemDeathSettings.damage);
             }
         }
     }
     @EventHandler
     public void onIGDeath2(EntityDeathEvent e) {
-        if (Conf.denyPoppyDrops) {
+        if (Config.denyPoppyDrops) {
             if (isIG(e.getEntity())) {
                 Material poppy = XMaterial.POPPY.parseMaterial();
                 e.getDrops().removeIf(itemStack -> itemStack.getType() == poppy);

@@ -1,6 +1,6 @@
 package net.savagellc.savagecore.listeners;
 
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import net.prosavage.baseplugin.XMaterial;
 import net.savagellc.savagecore.persist.Messages;
 import org.bukkit.entity.Player;
@@ -17,7 +17,7 @@ public class DenySpawnerStorage implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
 
-        if (!Conf.denySpawnerStorage) return;
+        if (!Config.denySpawnerStorage) return;
 
         if (e.isCancelled()) return;
 
@@ -46,7 +46,7 @@ public class DenySpawnerStorage implements Listener {
     @EventHandler
     public void onInventoryDrag(InventoryDragEvent e) {
         Player p = (Player) e.getWhoClicked();
-        if (!Conf.denySpawnerStorage) return;
+        if (!Config.denySpawnerStorage) return;
 
         if (e.isCancelled()) return;
 
@@ -66,7 +66,7 @@ public class DenySpawnerStorage implements Listener {
     @EventHandler
     public void onHopperMoveEvent(InventoryMoveItemEvent e) {
 
-        if (!Conf.denySpawnerStorage) return;
+        if (!Config.denySpawnerStorage) return;
 
         if (e.isCancelled()) return;
 

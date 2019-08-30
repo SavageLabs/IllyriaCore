@@ -1,6 +1,6 @@
 package net.savagellc.savagecore.listeners.autorespawn;
 
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -14,7 +14,7 @@ public class AutoRespawn implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
-        if (Conf.denyRespawnScreen) {
+        if (Config.denyRespawnScreen) {
                 Location dl = e.getEntity().getLocation();
                 Player p = e.getEntity();
                 PreAutoRespawn pre = new PreAutoRespawn(p, dl);

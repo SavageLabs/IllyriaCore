@@ -7,7 +7,7 @@ import net.savagellc.savagecore.listeners.autorespawn.AutoRespawn;
 import net.savagellc.savagecore.listeners.factions.AntiWildernessSpawner;
 import net.savagellc.savagecore.listeners.mobs.FastIronGolemDeath;
 import net.savagellc.savagecore.listeners.pvp.BloodSpray;
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import net.savagellc.savagecore.persist.Messages;
 import net.savagellc.trackx.TrackX;
 import org.bukkit.event.Listener;
@@ -30,9 +30,9 @@ public final class SavageCore extends BasePlugin implements Listener {
     @Override
     public void onDisable() { saveData(); }
 
-    private void loadData() { Conf.load(); Messages.load(); }
+    private void loadData() { Config.load(); Messages.load(); }
 
-    private void saveData() { Conf.save(); Messages.save(); }
+    private void saveData() { Config.save(); Messages.save(); }
 
     private void loadCmds() {
         this.command = new BaseCommand(this);

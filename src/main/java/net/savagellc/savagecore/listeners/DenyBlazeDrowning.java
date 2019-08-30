@@ -1,6 +1,6 @@
 package net.savagellc.savagecore.listeners;
 
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import org.bukkit.entity.Blaze;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,7 +11,7 @@ public class DenyBlazeDrowning implements Listener {
 
     @EventHandler
     public void onBlazeDrown(EntityDamageEvent e) {
-        if (Conf.denyBlazeDrowning) {
+        if (Config.denyBlazeDrowning) {
             if (e.isCancelled()) { return; }
             if (e.getEntity() instanceof Blaze && e.getCause() == DamageCause.DROWNING) {
                 e.setCancelled(true);

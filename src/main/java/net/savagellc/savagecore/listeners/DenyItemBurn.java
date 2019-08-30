@@ -1,6 +1,6 @@
 package net.savagellc.savagecore.listeners;
 
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
@@ -12,13 +12,13 @@ public class DenyItemBurn implements Listener {
 
     @EventHandler
     public void onItemBurn(EntityDamageEvent e) {
-        if (Conf.denyItemBurn) {
+        if (Config.denyItemBurn) {
             Entity en = e.getEntity();
             DamageCause cause = e.getCause();
             if (en.getType() != EntityType.DROPPED_ITEM) {
                 return;
             }
-            if (!Conf.itemBurnTypes.contains(cause.toString())) {
+            if (!Config.itemBurnTypes.contains(cause.toString())) {
                 return;
             } else {
                 e.setCancelled(true);

@@ -2,7 +2,7 @@ package net.savagellc.savagecore.listeners;
 
 import com.massivecraft.factions.listeners.FactionsPlayerListener;
 import net.prosavage.baseplugin.XMaterial;
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -17,7 +17,7 @@ public class FastIceBreak implements Listener {
         Player player = e.getPlayer();
         Block block = e.getBlock();
         Material ice = XMaterial.ICE.parseMaterial();
-        if (!Conf.fastIceBreak) return;
+        if (!Config.fastIceBreak) return;
 
         if (e.isCancelled()) return;
 

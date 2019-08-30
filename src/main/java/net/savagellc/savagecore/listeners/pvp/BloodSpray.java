@@ -1,6 +1,6 @@
 package net.savagellc.savagecore.listeners.pvp;
 
-import net.savagellc.savagecore.persist.Conf;
+import net.savagellc.savagecore.persist.Config;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
@@ -13,7 +13,7 @@ public class BloodSpray implements Listener {
 
     @EventHandler
     public void onPlayerHit(EntityDamageEvent e) {
-        if (Conf.bloodSprayToggle) {
+        if (Config.bloodSprayToggle) {
             if (!(e.getEntity() instanceof Player)) {
                 return;
             }
