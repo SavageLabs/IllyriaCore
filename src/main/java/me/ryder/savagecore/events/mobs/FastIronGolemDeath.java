@@ -17,7 +17,7 @@ public class FastIronGolemDeath implements Listener {
     @EventHandler
     public void onIGDeath(EntityDamageEvent e) {
         FileConfiguration config = Files.config.getFile();
-        if (config.getBoolean("fast-iron-golem-death.damage")) {
+        if (config.getBoolean("fast-iron-golem-death.toggle")) {
             if (isIG(e.getEntity()) && isF(e.getCause())) {
                 e.setDamage(config.getInt("fast-iron-golem-death.damage"));
             }
