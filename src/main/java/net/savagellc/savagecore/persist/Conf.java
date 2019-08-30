@@ -1,6 +1,8 @@
 package net.savagellc.savagecore.persist;
 
 import net.prosavage.baseplugin.serializer.Serializer;
+import net.savagellc.savagecore.persist.settings.FastIronGolemDeathSettings;
+
 import java.util.*;
 
 public class Conf {
@@ -46,6 +48,8 @@ public class Conf {
     public static boolean preventSpawnerStorage = false;
 
     public static boolean preventSpawnerProtection = false;
+
+    public static FastIronGolemDeathSettings fastIronGolemDeathSettings = new FastIronGolemDeathSettings(true, 20);
 
     static {
         damageTypes.add("FIRE_TICK");

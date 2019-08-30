@@ -16,10 +16,9 @@ import org.bukkit.event.entity.EntityDeathEvent;
 public class FastIronGolemDeath implements Listener {
     @EventHandler
     public void onIGDeath(EntityDamageEvent e) {
-        FileConfiguration config = FileManager.Files.config.getFile();
-        if (config.getBoolean("fast-iron-golem-death.toggle")) {
+        if (Conf.fastIronGolemDeathSettings.toggle) {
             if (isIG(e.getEntity()) && isF(e.getCause())) {
-                e.setDamage(config.getInt("fast-iron-golem-death.damage"));
+                e.setDamage(Conf.fastIronGolemDeathSettings.damage);
             }
         }
     }
