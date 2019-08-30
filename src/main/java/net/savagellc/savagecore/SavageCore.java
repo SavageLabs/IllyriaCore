@@ -1,7 +1,7 @@
 package net.savagellc.savagecore;
 
+import net.prosavage.baseplugin.BasePlugin;
 import net.savagellc.savagecore.commands.BaseCommand;
-import net.savagellc.savagecore.events.*;
 import net.savagellc.savagecore.events.*;
 import net.savagellc.savagecore.events.autorespawn.AutoRespawnEvent;
 import net.savagellc.savagecore.events.factions.AntiWildernessSpawner;
@@ -10,8 +10,8 @@ import net.savagellc.savagecore.events.player.BloodSprayEvent;
 import net.savagellc.savagecore.persist.Conf;
 import net.savagellc.savagecore.utils.FileManager;
 import net.savagellc.savagecore.utils.FileManager.Files;
-import net.prosavage.baseplugin.BasePlugin;
 import org.bukkit.event.Listener;
+
 import java.util.Objects;
 import java.util.logging.Logger;
 
@@ -50,27 +50,23 @@ public final class SavageCore extends BasePlugin implements Listener {
     }
 
     private void loadLists() {
-        registerListeners(new DenyItemBurnEvent());
-        registerListeners(new DenyIceMeltEvent());
-        registerListeners(new DenyBabyMobEvent());
-        registerListeners(new DenyWeatherEvent());
-        registerListeners(new DenyEndermanEvent());
-        registerListeners(new DenyFireSpreadEvent());
-        registerListeners(new DenyBlazeDrowning());
-        registerListeners(new DenyWaterRedstone());
-        registerListeners(new DenyIPPostEvent());
-        registerListeners(new DenySpawnerStorage());
-        registerListeners(new DenySpawnerGuard());
-        registerListeners(new FastIronGolemDeath());
-        registerListeners(new FastIceBreakEvent());
+        registerListeners(new DenyItemBurnEvent(),
+                new DenyIceMeltEvent(),
+                new DenyBabyMobEvent(),
+                new DenyWeatherEvent(),
+                new DenyEndermanEvent(),
+                new DenyFireSpreadEvent(),
+                new DenyBlazeDrowning(),
+                new DenyWaterRedstone(),
+                new DenyIPPostEvent(),
+                new DenySpawnerStorage(),
+                new DenySpawnerGuard(),
+                new FastIronGolemDeath(),
+                new FastIceBreakEvent(),
+                new AutoRespawnEvent(),
+                new AntiWildernessSpawner(),
+                new DenyPearlGlitchEvent(),
+                new BloodSprayEvent());
 
-        registerListeners(new AutoRespawnEvent());
-
-        // Faction Checks
-        registerListeners(new AntiWildernessSpawner());
-        registerListeners(new DenyPearlGlitchEvent());
-
-        // PVP / Player Based Checks
-        registerListeners(new BloodSprayEvent());
     }
 }
