@@ -1,7 +1,6 @@
 package net.savagellc.savagecore.commands;
 
 import net.savagellc.savagecore.SavageCore;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;

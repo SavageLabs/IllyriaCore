@@ -1,8 +1,8 @@
 package net.savagellc.savagecore.listeners;
 
 import net.savagellc.savagecore.persist.Conf;
-import net.savagellc.savagecore.persist.enums.Messages;
 import net.prosavage.baseplugin.XMaterial;
+import net.savagellc.savagecore.persist.Messages;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,18 +17,18 @@ public class DenySpawnerStorage implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
 
-        if (!Conf.preventSpawnerStorage) return;
+        if (!Conf.denySpawnerStorage) return;
 
         if (e.isCancelled()) return;
 
         Inventory clicked = e.getClickedInventory();
-        Player player = (Player) e.getWhoClicked();
+        Player p = (Player) e.getWhoClicked();
 
         if (e.getClick().isShiftClick()) {
             if (clicked == e.getWhoClicked().getInventory()) {
                 ItemStack clickedOn = e.getCurrentItem();
                 if (clickedOn != null && clickedOn.getType() == XMaterial.SPAWNER.parseItem().getType()) {
-                    player.sendMessage(Messages.CANNOT_STORE_SPAWNERS.getMessage());
+                    p.sendMessage(Messages.prefix + Messages.cannotStoreSpawners.toString());
                     e.setCancelled(true);
                 }
             }
@@ -37,7 +37,7 @@ public class DenySpawnerStorage implements Listener {
         if (clicked != e.getWhoClicked().getInventory()) {
             ItemStack onCursor = e.getCursor();
             if (onCursor != null && onCursor.getType() == XMaterial.SPAWNER.parseItem().getType()) {
-                player.sendMessage(Messages.CANNOT_STORE_SPAWNERS.getMessage());
+                p.sendMessage(Messages.prefix + Messages.cannotStoreSpawners.toString());
                 e.setCancelled(true);
             }
         }
@@ -45,8 +45,8 @@ public class DenySpawnerStorage implements Listener {
 
     @EventHandler
     public void onInventoryDrag(InventoryDragEvent e) {
-        Player player = (Player) e.getWhoClicked();
-        if (!Conf.preventSpawnerStorage) return;
+        Player p = (Player) e.getWhoClicked();
+        if (!Conf.denySpawnerStorage) return;
 
         if (e.isCancelled()) return;
 
@@ -55,7 +55,7 @@ public class DenySpawnerStorage implements Listener {
             int inventorySize = e.getInventory().getSize();
             for (int i : e.getRawSlots()) {
                 if (i < inventorySize) {
-                    player.sendMessage(Messages.CANNOT_STORE_SPAWNERS.getMessage());
+                    p.sendMessage(Messages.prefix + Messages.cannotStoreSpawners.toString());
                     e.setCancelled(true);
                     break;
                 }
@@ -66,7 +66,7 @@ public class DenySpawnerStorage implements Listener {
     @EventHandler
     public void onHopperMoveEvent(InventoryMoveItemEvent e) {
 
-        if (!Conf.preventSpawnerStorage) return;
+        if (!Conf.denySpawnerStorage) return;
 
         if (e.isCancelled()) return;
 

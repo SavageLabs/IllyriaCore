@@ -11,10 +11,8 @@ public class DenyBlazeDrowning implements Listener {
 
     @EventHandler
     public void onBlazeDrown(EntityDamageEvent e) {
-        if (Conf.antiBlazeDrownToggle) {
-            if (e.isCancelled()) {
-                return;
-            }
+        if (Conf.denyBlazeDrowning) {
+            if (e.isCancelled()) { return; }
             if (e.getEntity() instanceof Blaze && e.getCause() == DamageCause.DROWNING) {
                 e.setCancelled(true);
             }

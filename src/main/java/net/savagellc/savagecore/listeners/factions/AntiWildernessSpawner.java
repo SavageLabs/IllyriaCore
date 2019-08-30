@@ -13,14 +13,10 @@ public class AntiWildernessSpawner implements Listener {
     @EventHandler
     public void onSpawnerSpawn(SpawnerSpawnEvent e) {
 
-        if (Conf.antiWildernessSpawner) {
+        if (Conf.denyWildernessSpawners) {
             FLocation loc = new FLocation(e.getSpawner().getLocation());
-
             Faction faction = Board.getInstance().getFactionAt(loc);
-
-            if (faction == null) {
-                return;
-            }
+            if (faction == null) { return; }
 
             if (faction.isWilderness()) {
                 e.setCancelled(true);

@@ -3,9 +3,10 @@ package net.savagellc.savagecore.commands.cmds;
 import net.savagellc.savagecore.SavageCore;
 import net.savagellc.savagecore.commands.AbstractCommand;
 import net.savagellc.savagecore.persist.Conf;
-import net.savagellc.savagecore.persist.enums.Messages;
-import net.savagellc.savagecore.utils.FileManager;
+import net.savagellc.savagecore.persist.Messages;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class CmdReload extends AbstractCommand {
 
@@ -14,10 +15,12 @@ public class CmdReload extends AbstractCommand {
     }
 
     public boolean execute(CommandSender s, String[] args) {
-        FileManager.Files.messages.reloadFile();
+        Messages.load();
         Conf.load();
-
-        s.sendMessage(Messages.PLUGIN_RELOAD.getMessage());
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            p.setMaximumNoDamageTicks(Conf.noHitDelaySettings.delay);
+        }
+        s.sendMessage(Messages.prefix + Messages.reloadConfig.toString());
         return false;
     }
 

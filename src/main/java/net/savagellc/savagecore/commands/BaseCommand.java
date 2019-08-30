@@ -3,7 +3,7 @@ package net.savagellc.savagecore.commands;
 import net.savagellc.savagecore.SavageCore;
 import net.savagellc.savagecore.commands.cmds.CmdHelp;
 import net.savagellc.savagecore.commands.cmds.CmdReload;
-import net.savagellc.savagecore.persist.enums.Messages;
+import net.savagellc.savagecore.persist.Messages;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -30,20 +30,20 @@ public class BaseCommand implements CommandExecutor {
                     ((AbstractCommand)this.subcommands.get(Class.forName("net.savagellc.savagecore.commands.cmds.CmdHelp"))).execute(s, args);
                     return false;
                 }
-                s.sendMessage(Messages.NO_PERMISSIONS.getMessage());
+                s.sendMessage(Messages.prefix + Messages.noPermissions.toString());
                 return false;
             }
 
             for (AbstractCommand abstractCommand : this.subcommands.values()) {
                 if (!(s instanceof Player) && abstractCommand.isPlayerRequired()) {
-                    s.sendMessage(Messages.PLAYER_ONLY.getMessage());
+                    s.sendMessage(Messages.prefix + Messages.playerOnly.toString());
                     return false;
                 }
                 if (args[0].equalsIgnoreCase(abstractCommand.getLabel()) || abstractCommand.alias.contains(args[0])) {
                     if (s.hasPermission(abstractCommand.getPermission()) || s.isOp()) {
                         return abstractCommand.execute(s, (String[])Arrays.copyOfRange(args, 1, args.length));
                     }
-                    s.sendMessage(Messages.NO_PERMISSIONS.getMessage());
+                    s.sendMessage(Messages.prefix + Messages.noPermissions.toString());
                     return false;
                 }
             }

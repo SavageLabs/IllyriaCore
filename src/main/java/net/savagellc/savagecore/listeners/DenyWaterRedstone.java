@@ -9,9 +9,9 @@ public class DenyWaterRedstone implements Listener {
 
     @EventHandler
     public void onNoWater(BlockFromToEvent e) {
-        if (Conf.noWaterItemsToggle) {
+        if (Conf.denyWaterItemBreak) {
             String block = e.getToBlock().getType().toString();
-            if (Conf.itemTypes.contains(block)) {
+            if (Conf.itemWaterDeny.contains(block)) {
                 e.setCancelled(true);
             }
         }

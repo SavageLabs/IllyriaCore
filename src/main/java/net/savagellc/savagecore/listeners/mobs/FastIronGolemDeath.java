@@ -22,7 +22,7 @@ public class FastIronGolemDeath implements Listener {
     }
     @EventHandler
     public void onIGDeath2(EntityDeathEvent e) {
-        if (Conf.noPoppyDropToggle) {
+        if (Conf.denyPoppyDrops) {
             if (isIG(e.getEntity())) {
                 Material poppy = XMaterial.POPPY.parseMaterial();
                 e.getDrops().removeIf(itemStack -> itemStack.getType() == poppy);
