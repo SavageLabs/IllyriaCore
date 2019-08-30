@@ -15,7 +15,6 @@ public class CmdReload extends AbstractCommand {
 
     public boolean execute(CommandSender s, String[] args) {
         FileManager.Files.messages.reloadFile();
-        FileManager.Files.config.reloadFile();
         Conf.load();
 
         s.sendMessage(Messages.PLUGIN_RELOAD.getMessage());
