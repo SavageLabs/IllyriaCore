@@ -47,7 +47,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>net.prosavage.baseplugin</pattern>
-                                    <shadedPattern>me.ryder.savagecore.shade.baseplugin</shadedPattern>
+                                    <shadedPattern>net.savagellc.savagecore.shade.baseplugin</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

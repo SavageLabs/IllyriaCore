@@ -1,6 +1,6 @@
 name: SavageCore
 version: ${project.version}
-main: me.ryder.savagecore.SavageCore
+main: net.savagellc.savagecore.SavageCore
 api-version: '1.13'
 authors: [Ryder]
 description: A plugin to improve the Factions experience.
