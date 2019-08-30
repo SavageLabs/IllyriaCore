@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events;
+package net.savagellc.savagecore.listener;
 
 import net.savagellc.savagecore.persist.Conf;
 import org.bukkit.event.EventHandler;
@@ -6,7 +6,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.weather.WeatherChangeEvent;
 
-public class DenyWeatherEvent implements Listener {
+public class DenyWeatherListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onWeatherChange(WeatherChangeEvent e) {

@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events;
+package net.savagellc.savagecore.listener;
 
 import net.savagellc.savagecore.persist.Conf;
 import net.savagellc.savagecore.persist.enums.Messages;

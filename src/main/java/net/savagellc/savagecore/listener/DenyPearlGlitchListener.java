@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events;
+package net.savagellc.savagecore.listener;
 
 import net.savagellc.savagecore.persist.Conf;
 import org.bukkit.Location;
@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.inventory.ItemStack;
 import java.util.Objects;
 
-public class DenyPearlGlitchEvent implements Listener {
+public class DenyPearlGlitchListener implements Listener {
 
     @EventHandler
     public void onPearlTeleport(PlayerTeleportEvent event) {

@@ -1,13 +1,13 @@
 name: SavageCore
 version: 1.4-STABLE
-main: me.ryder.savagecore.SavageCore
+main: net.savagellc.savagecore.SavageCore
 api-version: '1.13'
 authors: [Ryder]
 description: A plugin to improve the Factions experience.
 commands:
-  sc:
+  savagecore:
     aliases:
-      - savagecore
+      - score
     description: The base commands for SavageCore
 permissions:
   savagecore.reload:

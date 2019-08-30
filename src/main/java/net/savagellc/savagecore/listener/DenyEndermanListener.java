@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events;
+package net.savagellc.savagecore.listener;
 
 import com.massivecraft.factions.Board;
 import com.massivecraft.factions.FLocation;
@@ -12,7 +12,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.*;
 
-public class DenyEndermanEvent implements Listener {
+public class DenyEndermanListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onEntityChangeBlock(EntityChangeBlockEvent e) {

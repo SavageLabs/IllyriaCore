@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events;
+package net.savagellc.savagecore.listener;
 
 import net.savagellc.savagecore.persist.enums.Messages;
 import org.bukkit.event.EventHandler;
@@ -7,7 +7,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DenyIPPostEvent implements Listener {
+public class DenyIPPostListener implements Listener {
 
     @EventHandler
     public void onIPPost(AsyncPlayerChatEvent event) {

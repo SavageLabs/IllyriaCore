@@ -1,10 +1,8 @@
-package net.savagellc.savagecore.events.mobs;
+package net.savagellc.savagecore.listener.mobs;
 
 import net.savagellc.savagecore.persist.Conf;
 import net.prosavage.baseplugin.XMaterial;
-import net.savagellc.savagecore.utils.FileManager;
 import org.bukkit.Material;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;

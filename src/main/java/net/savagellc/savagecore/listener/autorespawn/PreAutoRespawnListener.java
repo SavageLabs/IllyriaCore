@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events.autorespawn;
+package net.savagellc.savagecore.listener.autorespawn;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -9,7 +9,7 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.event.entity.EntityDamageEvent;
 import java.util.Objects;
 
-public class PreAutoRespawnEvent extends Event implements Cancellable {
+public class PreAutoRespawnListener extends Event implements Cancellable {
     private Player p;
     private Location dl;
     private boolean cl;
@@ -19,7 +19,7 @@ public class PreAutoRespawnEvent extends Event implements Cancellable {
         handlers = new HandlerList();
     }
 
-    PreAutoRespawnEvent(Player p, Location dl) {
+    PreAutoRespawnListener(Player p, Location dl) {
         this.cl = false;
         this.p = p;
         this.dl = dl;
@@ -46,11 +46,11 @@ public class PreAutoRespawnEvent extends Event implements Cancellable {
     }
 
     public HandlerList getHandlers() {
-        return PreAutoRespawnEvent.handlers;
+        return PreAutoRespawnListener.handlers;
     }
 
     public static HandlerList getHL() {
-        return PreAutoRespawnEvent.handlers;
+        return PreAutoRespawnListener.handlers;
     }
 
     public boolean isCancelled() {

@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events.player;
+package net.savagellc.savagecore.listener.player;
 
 import net.savagellc.savagecore.persist.Conf;
 import org.bukkit.Effect;
@@ -9,7 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 
-public class BloodSprayEvent implements Listener {
+public class BloodSprayListener implements Listener {
 
     @EventHandler
     public void onPlayerHit(EntityDamageEvent e) {

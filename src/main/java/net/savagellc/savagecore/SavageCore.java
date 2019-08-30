@@ -2,11 +2,11 @@ package net.savagellc.savagecore;
 
 import net.prosavage.baseplugin.BasePlugin;
 import net.savagellc.savagecore.commands.BaseCommand;
-import net.savagellc.savagecore.events.*;
-import net.savagellc.savagecore.events.autorespawn.AutoRespawnEvent;
-import net.savagellc.savagecore.events.factions.AntiWildernessSpawner;
-import net.savagellc.savagecore.events.mobs.FastIronGolemDeath;
-import net.savagellc.savagecore.events.player.BloodSprayEvent;
+import net.savagellc.savagecore.listener.*;
+import net.savagellc.savagecore.listener.autorespawn.AutoRespawnListener;
+import net.savagellc.savagecore.listener.factions.AntiWildernessSpawner;
+import net.savagellc.savagecore.listener.mobs.FastIronGolemDeath;
+import net.savagellc.savagecore.listener.player.BloodSprayListener;
 import net.savagellc.savagecore.persist.Conf;
 import net.savagellc.savagecore.utils.FileManager;
 import net.savagellc.savagecore.utils.FileManager.Files;
@@ -49,23 +49,23 @@ public final class SavageCore extends BasePlugin implements Listener {
     }
 
     private void loadLists() {
-        registerListeners(new DenyItemBurnEvent(),
-                new DenyIceMeltEvent(),
-                new DenyBabyMobEvent(),
-                new DenyWeatherEvent(),
-                new DenyEndermanEvent(),
-                new DenyFireSpreadEvent(),
+        registerListeners(new DenyItemBurnListener(),
+                new DenyIceMeltListener(),
+                new DenyBabyMobListener(),
+                new DenyWeatherListener(),
+                new DenyEndermanListener(),
+                new DenyFireSpreadListener(),
                 new DenyBlazeDrowning(),
                 new DenyWaterRedstone(),
-                new DenyIPPostEvent(),
+                new DenyIPPostListener(),
                 new DenySpawnerStorage(),
                 new DenySpawnerGuard(),
                 new FastIronGolemDeath(),
-                new FastIceBreakEvent(),
-                new AutoRespawnEvent(),
+                new FastIceBreakListener(),
+                new AutoRespawnListener(),
                 new AntiWildernessSpawner(),
-                new DenyPearlGlitchEvent(),
-                new BloodSprayEvent());
+                new DenyPearlGlitchListener(),
+                new BloodSprayListener());
 
     }
 }

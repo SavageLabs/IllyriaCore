@@ -1,7 +1,5 @@
 package net.savagellc.savagecore.persist.settings;
 
-import net.savagellc.savagecore.events.mobs.FastIronGolemDeath;
-
 public class FastIronGolemDeathSettings {
 
     public boolean toggle;

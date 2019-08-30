@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events;
+package net.savagellc.savagecore.listener;
 
 import net.savagellc.savagecore.persist.Conf;
 import org.bukkit.entity.Entity;
@@ -8,7 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
-public class DenyItemBurnEvent implements Listener {
+public class DenyItemBurnListener implements Listener {
 
     @EventHandler
     public void onItemBurn(EntityDamageEvent e) {

@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events.autorespawn;
+package net.savagellc.savagecore.listener.autorespawn;
 
 import org.bukkit.event.Event;
 import org.bukkit.Location;
@@ -8,7 +8,7 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.event.entity.EntityDamageEvent;
 import java.util.Objects;
 
-public class TargetAutoRespawnEvent extends Event {
+public class TargetAutoRespawnListener extends Event {
     private Player p;
     private Location dl;
     private Location rl;
@@ -18,7 +18,7 @@ public class TargetAutoRespawnEvent extends Event {
         handlers = new HandlerList();
     }
 
-    TargetAutoRespawnEvent(Player p, Location dl, Location rl) {
+    TargetAutoRespawnListener(Player p, Location dl, Location rl) {
         this.p = p;
         this.rl = rl;
         this.dl = dl;
@@ -56,10 +56,10 @@ public class TargetAutoRespawnEvent extends Event {
     }
 
     public HandlerList getHandlers() {
-        return TargetAutoRespawnEvent.handlers;
+        return TargetAutoRespawnListener.handlers;
     }
 
     public static HandlerList getHandlerList() {
-        return TargetAutoRespawnEvent.handlers;
+        return TargetAutoRespawnListener.handlers;
     }
 }

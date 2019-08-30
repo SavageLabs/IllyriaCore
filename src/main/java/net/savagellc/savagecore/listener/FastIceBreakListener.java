@@ -1,4 +1,4 @@
-package net.savagellc.savagecore.events;
+package net.savagellc.savagecore.listener;
 
 import com.massivecraft.factions.listeners.FactionsPlayerListener;
 import net.savagellc.savagecore.persist.Conf;
@@ -7,7 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockDamageEvent;
 
-public class FastIceBreakEvent implements Listener {
+public class FastIceBreakListener implements Listener {
 
     @EventHandler
     public void onIceHit(BlockDamageEvent event) {
