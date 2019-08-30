@@ -22,8 +22,8 @@ public enum Messages {
             Arrays.asList(
                     "&cSavageCore's Help Menu",
                     "",
-                    "&c/sc help &8- &7Displays this page to show what you can do.",
-                    "&c/sc reload &8- &7Reloads the entire plugin."
+                    "&c/savagecore help &8- &7Displays this page to show what you can do.",
+                    "&c/savagecore reload &8- &7Reloads the entire plugin."
             ));
 
     private String path;

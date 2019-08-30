@@ -45,7 +45,7 @@ public final class SavageCore extends BasePlugin implements Listener {
 
     private void loadCmds() {
         this.command = new BaseCommand(this);
-        Objects.requireNonNull(getCommand("sc")).setExecutor(this.command);
+        Objects.requireNonNull(getCommand("savagecore")).setExecutor(this.command);
     }
 
     private void loadLists() {

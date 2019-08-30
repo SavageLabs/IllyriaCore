@@ -10,5 +10,5 @@ Messages:
   Player-Help:
     - "&cSavageCore's Help Menu"
     - ""
-    - "&c/sc help - &7Displays this page to show what you can do."
-    - "&c/sc reload - &7Reloads the entire plugin."
+    - "&c/savagecore help - &7Displays this page to show what you can do."
+    - "&c/savagecore reload - &7Reloads the entire plugin."
