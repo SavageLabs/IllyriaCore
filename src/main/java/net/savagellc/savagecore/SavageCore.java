@@ -41,7 +41,6 @@ public final class SavageCore extends BasePlugin implements Listener {
     private void saveData() {
         Conf.save();
         Files.messages.saveFile();
-        Files.config.saveFile();
     }
 
     private void loadCmds() {
