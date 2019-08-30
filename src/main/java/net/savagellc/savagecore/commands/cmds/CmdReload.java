@@ -17,8 +17,10 @@ public class CmdReload extends AbstractCommand {
     public boolean execute(CommandSender s, String[] args) {
         Messages.load();
         Config.load();
-        for (Player p : Bukkit.getOnlinePlayers()) {
-            p.setMaximumNoDamageTicks(Config.noHitDelaySettings.delay);
+        if (Config.noHitDelaySettings.toggle) {
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                p.setMaximumNoDamageTicks(Config.noHitDelaySettings.delay);
+            }
         }
         s.sendMessage(Messages.prefix + Messages.reloadConfig.toString());
         return false;
