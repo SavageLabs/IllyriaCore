@@ -44,7 +44,7 @@ public class Conf {
 
     public static boolean denyItemBurn = false;
 
-    public static FastIronGolemDeathSettings fastIronGolemDeathSettings = new FastIronGolemDeathSettings(true, 20);
+    public static FastIronGolemDeathSettings fastIronGolemDeathSettings = new FastIronGolemDeathSettings(false, 20);
 
     public static NoHitDelaySettings noHitDelaySettings = new NoHitDelaySettings(false, 20);
 
