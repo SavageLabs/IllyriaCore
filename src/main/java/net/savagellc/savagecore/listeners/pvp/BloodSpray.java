@@ -19,7 +19,6 @@ public class BloodSpray implements Listener {
             }
             Entity target = e.getEntity();
             Location loc = target.getLocation();
-
             target.getWorld().playEffect(loc, Effect.STEP_SOUND, 152);
         }
     }

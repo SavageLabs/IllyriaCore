@@ -47,6 +47,5 @@ public class DenyEndermanAI implements Listener {
             }
         }
     }
-
     private boolean isEM(Entity e) { return e.getType() == EntityType.ENDERMAN; }
 }

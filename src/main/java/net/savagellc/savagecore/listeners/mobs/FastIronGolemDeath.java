@@ -12,6 +12,7 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.entity.EntityDeathEvent;
 
 public class FastIronGolemDeath implements Listener {
+
     @EventHandler
     public void onIGDeath(EntityDamageEvent e) {
         if (Config.fastIronGolemDeathSettings.toggle) {
@@ -20,6 +21,7 @@ public class FastIronGolemDeath implements Listener {
             }
         }
     }
+
     @EventHandler
     public void onIGDeath2(EntityDeathEvent e) {
         if (Config.denyPoppyDrops) {

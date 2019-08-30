@@ -17,6 +17,5 @@ public class DenyMobItemPickUp implements Listener {
             }
         }
     }
-
     private boolean isZombie(Entity e) { return e.getType() == EntityType.ZOMBIE; }
 }
