@@ -8,17 +8,17 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
-public class DenyItemBurnEvent implements Listener {
+public class DenyItemBurn implements Listener {
 
     @EventHandler
     public void onItemBurn(EntityDamageEvent e) {
-        if (Conf.itemBurnToggle) {
+        if (Conf.denyItemBurn) {
             Entity en = e.getEntity();
             DamageCause cause = e.getCause();
             if (en.getType() != EntityType.DROPPED_ITEM) {
                 return;
             }
-            if (!Conf.damageTypes.contains(cause.toString())) {
+            if (!Conf.itemBurnTypes.contains(cause.toString())) {
                 return;
             } else {
                 e.setCancelled(true);

@@ -10,14 +10,14 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import java.util.Objects;
 
-public class AutoRespawnEvent implements Listener {
+public class AutoRespawn implements Listener {
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
-        if (Conf.respawnScreenToggle) {
+        if (Conf.denyRespawnScreen) {
                 Location dl = e.getEntity().getLocation();
                 Player p = e.getEntity();
-                PreAutoRespawnEvent pre = new PreAutoRespawnEvent(p, dl);
+                PreAutoRespawn pre = new PreAutoRespawn(p, dl);
 
                 Bukkit.getPluginManager().callEvent(pre);
 
@@ -30,7 +30,7 @@ public class AutoRespawnEvent implements Listener {
                     public void run() {
                         p.spigot().respawn();
                         Location rl = e.getEntity().getLocation();
-                        Bukkit.getPluginManager().callEvent(new TargetAutoRespawnEvent(e.getEntity(), dl, rl));
+                        Bukkit.getPluginManager().callEvent(new TargetAutoRespawn(e.getEntity(), dl, rl));
                     }
                 }).runTaskTimer((Objects.requireNonNull(Bukkit.getPluginManager().getPlugin("SavageCore"))), 1L, 1L);
             }

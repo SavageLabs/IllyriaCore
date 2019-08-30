@@ -12,24 +12,23 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.*;
 
-public class DenyEndermanEvent implements Listener {
+public class DenyEndermanAI implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onEntityChangeBlock(EntityChangeBlockEvent e) {
-        if (Conf.enderManGriefToggle) {
+        if (Conf.denyEndermanGrief) {
             if (isEM(e.getEntity())) {
                 e.setCancelled(true);
             }
         }
     }
+
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onEnderManTeleport(EntityTeleportEvent e) {
         FLocation loc = new FLocation(e.getEntity().getLocation());
         Faction faction = Board.getInstance().getFactionAt(loc);
-        if (Conf.antiEnderManTeleport) {
-            if (faction.isWilderness() || faction.isSafeZone() || faction.isWarZone()) {
-                return;
-            }
+        if (Conf.denyEndermanTeleport) {
+            if (faction.isWilderness() || faction.isSafeZone() || faction.isWarZone()) { return; }
             if (faction.isNormal() || faction.isPeaceful()) {
                 if (isEM(e.getEntity())) {
                     e.setCancelled(true);
@@ -37,9 +36,10 @@ public class DenyEndermanEvent implements Listener {
             }
         }
     }
+
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onTarget(EntityTargetEvent e) {
-        if (Conf.antiEnderManTeleport) {
+        if (Conf.denyEndermanTarget) {
             if (isEM(e.getEntity()) && e.getTarget() instanceof Player) {
                 if (e.getReason() == EntityTargetEvent.TargetReason.CLOSEST_PLAYER) {
                     e.setCancelled(true);
@@ -47,7 +47,6 @@ public class DenyEndermanEvent implements Listener {
             }
         }
     }
-    private boolean isEM(Entity e) {
-        return e.getType() == EntityType.ENDERMAN;
-    }
+
+    private boolean isEM(Entity e) { return e.getType() == EntityType.ENDERMAN; }
 }

@@ -1,21 +1,23 @@
 package net.savagellc.savagecore.listeners;
 
-import net.savagellc.savagecore.persist.enums.Messages;
+import net.savagellc.savagecore.persist.Messages;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DenyIPPostEvent implements Listener {
+public class DenyIPPost implements Listener {
 
     @EventHandler
-    public void onIPPost(AsyncPlayerChatEvent event) {
-        String[] parts  = event.getMessage().split(" ");
+    public void onIPPost(AsyncPlayerChatEvent e) {
+        String[] parts  = e.getMessage().split(" ");
+        Player p = e.getPlayer();
         for (String part : parts) {
             if (this.isValidIP1(part) || this.isValidIP2(part) || this.isValidIP3(part)) {
-                event.setCancelled(true);
-                event.getPlayer().sendMessage(Messages.ANTI_POST_IP.getMessage());
+                e.setCancelled(true);
+                p.sendMessage(Messages.prefix + Messages.antiPostIP.toString());
             }
         }
     }
