@@ -1,10 +1,10 @@
-## How to contribute to SavageFactions
+## How to contribute to IllyriaCore
 	
 	#### **Did you find a bug?**
 	
-	* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/SavageLLC/SkIDE/issues).
+	* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/illyria-io/IllyriaCore/issues).
 	
-	* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/SavageLLC/SkIDE/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or a **snippet of the logs** demonstrating the expected behavior that is not occurring.
+	* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/illyria-io/IllyriaCore/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or a **snippet of the logs** demonstrating the expected behavior that is not occurring.
 	
 	#### **Did you write a patch that fixes a bug?**
 	
@@ -22,10 +22,10 @@
 	
 	* Discuss in our [discord server](https://discord.gg/UPyahX2) about your idea.
 	
-	* Do not open a Pull Request on GitHub until you have collected positive feedback about the change. GitHub issues are primarily intended for bug reports and fixes.
+	* Do not open a pull request on GitHub until you have collected positive feedback about the change. GitHub issues are primarily intended for bug reports and fixes.
 	
-	SkIDE is a volunteer effort. We encourage you to pitch in and report bugs or create pull requests!
+	IllyriaCore is a volunteer effort. We encourage you to pitch in and report bugs or create pull requests!
 	
 	Thanks!
 	
-	SavageLLC
+	Illyria Staff Team
