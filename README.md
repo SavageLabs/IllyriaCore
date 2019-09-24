@@ -26,5 +26,8 @@ A recode of SavageCoreX that will have more features released as time goes on.
 - BloodSpray
 - NoHitDelay
 
-# Dependencies #
-- SavageFactions
+# Optional Dependencies #
+- IllyriaFactions
+- IllyriaFactionsX
+
+- The features that won't work without IllyriaFactions/IllyriaFactionsX are DenySpawnerStorage, DenySpawnerGuard.
