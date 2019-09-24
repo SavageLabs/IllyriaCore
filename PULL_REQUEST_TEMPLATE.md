@@ -6,4 +6,4 @@
 	
 **Why did you make these change(s)?**
 	
-**Is there anything we need to know for compatability?** (variable names, placeholders etc.)
+**Is there anything we need to know for compatibility?** (variable names, placeholders etc.)
