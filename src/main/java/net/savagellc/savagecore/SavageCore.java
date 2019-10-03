@@ -20,11 +20,16 @@ public final class SavageCore extends BasePlugin implements Listener {
 
     @Override
     public void onEnable() {
-        TrackX.startTracking("savagecorex", this.getDescription().getVersion(), "net.savagellc.savagecore");
         super.onEnable();
         loadData();
+        if (Config.enableTrackX){
+            TrackX.startTracking("savagecorex", this.getDescription().getVersion(), "net.savagellc.savagecore");
+        }
         loadLists();
         loadCmds();
+        if (Config.cleanScoreboardDatOnStart){
+            getServer().getScoreboardManager().getMainScoreboard().getTeams().forEach(t -> t.unregister());
+        }
     }
 
     @Override
